@@ -27,5 +27,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "netlify", "supabase/functions"]
+  "exclude": ["node_modules", "netlify", "supabase/functions", "**/*.test.*", "**/*.spec.*", "**/test-utils/**", "**/__tests__/**"]
 }
