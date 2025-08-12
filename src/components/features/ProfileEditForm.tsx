@@ -87,7 +87,7 @@ export default function ProfileEditForm({
       case 'full_name':
         validation = ValidationService.validateFullName(stringValue)
         if (!validation.isValid) {
-          newErrors.full_name = validation.errors[0].message
+          newErrors.full_name = validation.errors?.[0]?.message || 'Error de validación'
         } else {
           delete newErrors.full_name
         }
@@ -96,7 +96,7 @@ export default function ProfileEditForm({
       case 'bio':
         validation = ValidationService.validateBio(stringValue)
         if (!validation.isValid) {
-          newErrors.bio = validation.errors[0].message
+          newErrors.bio = validation.errors?.[0]?.message || 'Error de validación'
         } else {
           delete newErrors.bio
         }
@@ -105,7 +105,7 @@ export default function ProfileEditForm({
       case 'location':
         validation = ValidationService.validateLocation(stringValue)
         if (!validation.isValid) {
-          newErrors.location = validation.errors[0].message
+          newErrors.location = validation.errors?.[0]?.message || 'Error de validación'
         } else {
           delete newErrors.location
         }
@@ -171,7 +171,7 @@ export default function ProfileEditForm({
       if (avatarFile) {
         const avatarValidation = ValidationService.validateFileUpload(avatarFile, 'avatar')
         if (!avatarValidation.isValid) {
-          setErrors(prev => ({ ...prev, avatar: avatarValidation.errors[0].message }))
+          setErrors(prev => ({ ...prev, avatar: avatarValidation.errors?.[0]?.message || 'Error de validación' }))
           return
         }
 
@@ -189,7 +189,7 @@ export default function ProfileEditForm({
       if (coverFile) {
         const coverValidation = ValidationService.validateFileUpload(coverFile, 'cover')
         if (!coverValidation.isValid) {
-          setErrors(prev => ({ ...prev, cover: coverValidation.errors[0].message }))
+          setErrors(prev => ({ ...prev, cover: coverValidation.errors?.[0]?.message || 'Error de validación' }))
           return
         }
 

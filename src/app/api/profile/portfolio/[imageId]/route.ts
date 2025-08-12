@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase'
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { imageId: string } }
+  { params }: { params: Promise<{ imageId: string }> }
 ) {
   try {
     // Get authenticated user
@@ -26,7 +26,7 @@ export async function PUT(
       )
     }
 
-    const { imageId } = params
+    const { imageId } = await params
     const body = await request.json()
     const { alt_text, sort_order } = body
 
@@ -71,7 +71,7 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { imageId: string } }
+  { params }: { params: Promise<{ imageId: string }> }
 ) {
   try {
     // Get authenticated user
@@ -93,7 +93,7 @@ export async function DELETE(
       )
     }
 
-    const { imageId } = params
+    const { imageId } = await params
 
     const result = await ProfileService.deletePortfolioImage(imageId)
 

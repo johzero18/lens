@@ -105,7 +105,7 @@ describe('ProfileService', () => {
 
     it('should handle profile not found', async () => {
       // Mock not found response
-      const mockSupabase = require('@/lib/supabase').supabase
+      const { supabase: mockSupabase } = await import('@/lib/supabase')
       mockSupabase.from.mockReturnValueOnce({
         select: jest.fn(() => ({
           eq: jest.fn(() => ({

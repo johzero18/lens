@@ -158,6 +158,8 @@ export function monitorResourceUsage() {
 
     return usage
   }
+  
+  return null
 }
 
 // Network monitoring
@@ -180,6 +182,8 @@ export function monitorNetworkStatus() {
 
     return networkInfo
   }
+  
+  return null
 }
 
 // Initialize monitoring

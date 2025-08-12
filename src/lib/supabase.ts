@@ -10,6 +10,9 @@ if (!supabaseUrl || !supabaseAnonKey) {
 // Client-side Supabase client
 export const supabase = createBrowserClient(supabaseUrl, supabaseAnonKey)
 
+// Alias for compatibility
+export const createClient = () => supabase
+
 // Server-side client for admin operations
 export const createSupabaseServerClient = () => {
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!

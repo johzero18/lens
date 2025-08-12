@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
         { 
           error: { 
             code: 'VALIDATION_ERROR', 
-            message: validation.errors[0].message,
+            message: validation.errors?.[0]?.message || 'Error de validación',
             details: validation.errors
           } 
         },

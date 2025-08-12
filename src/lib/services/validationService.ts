@@ -1,6 +1,6 @@
 import { 
   UserRole, 
-  ProfileUpdateData, 
+  ProfileFormData, 
   ModelData, 
   PhotographerData, 
   MakeupArtistData, 
@@ -20,7 +20,7 @@ export class ValidationService {
   /**
    * Validate profile update data
    */
-  static validateProfileUpdate(data: ProfileUpdateData, role: UserRole): ValidationResult {
+  static validateProfileUpdate(data: Partial<ProfileFormData & { avatar_url?: string; cover_image_url?: string }>, role: UserRole): ValidationResult {
     const errors: ValidationError[] = []
 
     // Validate full_name

@@ -165,8 +165,7 @@ export class ProfileService {
         return {
           error: {
             code: 'VALIDATION_ERROR',
-            message: 'El nombre debe tener al menos 2 caracteres',
-            field: 'full_name'
+            message: 'El nombre debe tener al menos 2 caracteres'
           }
         }
       }
@@ -175,8 +174,7 @@ export class ProfileService {
         return {
           error: {
             code: 'VALIDATION_ERROR',
-            message: 'La biografía debe tener al menos 10 caracteres',
-            field: 'bio'
+            message: 'La biografía debe tener al menos 10 caracteres'
           }
         }
       }
@@ -185,8 +183,7 @@ export class ProfileService {
         return {
           error: {
             code: 'VALIDATION_ERROR',
-            message: 'La ubicación es requerida',
-            field: 'location'
+            message: 'La ubicación es requerida'
           }
         }
       }

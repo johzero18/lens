@@ -57,7 +57,7 @@ export default function PortfolioManager({
       for (const file of files) {
         const validation = ValidationService.validateFileUpload(file, 'portfolio')
         if (!validation.isValid) {
-          setUploadError(validation.errors[0].message)
+          setUploadError(validation.errors?.[0]?.message || 'Error de validación')
           return
         }
       }
@@ -274,7 +274,7 @@ export default function PortfolioManager({
     // Validate alt text
     const validation = ValidationService.validatePortfolioImageData({ alt_text: altText, sort_order: 1 })
     if (!validation.isValid) {
-      setUploadError(validation.errors[0].message)
+      setUploadError(validation.errors?.[0]?.message || 'Error de validación')
       return
     }
 

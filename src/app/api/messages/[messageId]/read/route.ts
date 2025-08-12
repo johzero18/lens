@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase'
 // PATCH /api/messages/[messageId]/read - Mark message as read
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { messageId: string } }
+  { params }: { params: Promise<{ messageId: string }> }
 ) {
   try {
     const supabase = createClient()
@@ -18,7 +18,7 @@ export async function PATCH(
       )
     }
 
-    const { messageId } = params
+    const { messageId } = await params
 
     if (!messageId) {
       return NextResponse.json(

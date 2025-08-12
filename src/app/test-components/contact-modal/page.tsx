@@ -33,6 +33,7 @@ export default function ContactModalTestPage() {
         <ContactModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
+          recipientId="test-recipient-id"
           recipientName="María García"
           recipientRole="Fotógrafa"
         />

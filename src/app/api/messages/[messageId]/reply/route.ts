@@ -36,7 +36,7 @@ function incrementRateLimit(userId: string): void {
 // POST /api/messages/[messageId]/reply - Reply to a message
 export async function POST(
   request: NextRequest,
-  { params }: { params: { messageId: string } }
+  { params }: { params: Promise<{ messageId: string }> }
 ) {
   try {
     const supabase = createClient()
@@ -70,7 +70,7 @@ export async function POST(
       )
     }
 
-    const { messageId } = params
+    const { messageId } = await params
     const body = await request.json()
     const { message } = body
 
@@ -103,6 +103,7 @@ export async function POST(
         sender_id,
         receiver_id,
         subject,
+        read_at,
         sender:profiles!contacts_sender_id_fkey(id, username, full_name, role, avatar_url),
         receiver:profiles!contacts_receiver_id_fkey(id, username, full_name, role, avatar_url)
       `)

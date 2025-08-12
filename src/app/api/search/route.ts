@@ -43,6 +43,7 @@ export async function GET(request: NextRequest) {
         updated_at,
         portfolio_images (
           id,
+          profile_id,
           image_url,
           alt_text,
           sort_order,

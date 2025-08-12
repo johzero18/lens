@@ -492,6 +492,7 @@ export default function ProfilePageClient({ profile }: ProfilePageClientProps) {
       <LazyContactModal
         isOpen={isContactModalOpen}
         onClose={() => setIsContactModalOpen(false)}
+        recipientId={profile.id}
         recipientName={profile.full_name}
         recipientRole={roleDisplayName}
       />
