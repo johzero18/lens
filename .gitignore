@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# deployment
+.netlify/
+dist/
+lighthouse-report.html
+bundle-analyzer-report.html
+
+# monitoring and logs
+*.log
+logs/
+
+# security
+audit-results.json
+
+# local environment files (keep examples)
+.env.production
+.env.staging
+!.env.production.example
